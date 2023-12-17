@@ -12,8 +12,8 @@ export class AllService {
   refresh:string;
   user:any;
   participant;
-  url="http://localhost:4400/";
-  socket:Socket=io('http://localhost:4400');
+  url="http://localhost:3000/";
+  socket:Socket=io('http://localhost:3000');
   public conversation$: BehaviorSubject<string> = new BehaviorSubject('');
   public conversationList$: BehaviorSubject<string> = new BehaviorSubject('');
   constructor(private http:HttpClient,private router:Router) {}
@@ -23,15 +23,6 @@ export class AllService {
       "email": mail,
       "password": pwd
     })
-  }
-
-  initSocket(){
-    this.socket= io('http://localhost:4400',{
-      query:{
-        userId:this.user._id,
-        registrationToken:this.access
-      }
-    });
   }
 
   refreshToken(){
