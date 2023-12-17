@@ -1,0 +1,14 @@
+<div class="container-fluid">
+    <button class="btn btn-action" (click)="typing()">
+        typing
+    </button>
+    <div class="conv" *ngFor="let conv of conversation">
+        <div *ngIf="conv.lastMessage.sender==conv.user">
+            <p>Me</p>
+        </div>
+        <div *ngIf="conv.lastMessage.sender!=conv.user">
+            <p>{{conv.participants[0].fullname}}</p>
+        </div>
+        <p>{{conv.lastMessage.content}}</p>
+    </div>
+</div>

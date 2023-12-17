@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="conversation">
+        <div class="back">
+            <button class="btn">back</button>
+        </div>
+        <div class="message">
+            <div class="m" *ngFor="let mess of conversation">
+                <p>{{mess.content}}</p>
+            </div>            
+        </div>
+        <div class="text">
+            <form [formGroup]="messageForm">
+                <input type="text" formControlName="message">
+                <button class="btn btn-success" (click)="send()">send</button>
+            </form>
+        </div>
+    </div>
+</div>
